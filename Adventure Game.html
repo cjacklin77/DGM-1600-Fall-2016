@@ -1,0 +1,311 @@
+<html>
+<head>
+  <title>Monster Adventure</title>
+</head>
+<body>
+    <script>
+      
+function endGame(){
+  alert("Your answer makes no sense, therefore, you die");
+}
+
+function death(){
+    alert("Rotten luck! You died!");
+}
+
+
+var playerName = prompt("Name your character");
+var gameStart= confirm("Are you ready for an adventure "+ playerName + "?");
+
+if(gameStart){
+    gameBeginning();
+}
+
+else{
+    endGame();
+}
+
+/*GameStart*/
+function gameBeginning(){
+    alert("You are a brave young warrior living at the base of a great mountain with beautiful surrounding trees and an enchanted lake. You are helpful and kind to your family and and townspeople and enjoy the peaceful life you lead. However, deep down, you long for adventure!");
+    
+    alert("Little did you know your biggest adventure was about to start!");
+    
+    alert("As you are patrolling out in the fields, you hear a strange sound. You don't think much of it and continue working. After a short time, it becomes eerily quiet. You decide to make your way back into the village to find that everyone in town is gone! As you search you find your sister, Jenni, hiding in a pile of hay.");
+
+/*Adventure Start*/    
+    var problem1 = prompt("You ask your sister what happened and she explains that a man in a black coat came riding a dragon and took all of the townspeople away! You now are faced with a choice, do you \n~run away\n~or go find the townspeople?");
+
+if(problem1 == "go find the townspeople"){
+    adventure();
+}
+else if(problem1 == "run away"){
+    death1();
+}
+
+else{
+    endGame();
+  }
+}
+
+function adventure(){
+  alert("You give your sister provisions and ask her to stay behind to wait and see if anyone returns. You then grab your sword and some of your own provisions and set off to find the townspeople.");
+  direction();
+}
+
+function death1(){
+  alert("You run in fear for your life. After running for a time, you realize you have no food, you decided to eat some berries off a bush by you and are poisoned.");
+
+}
+
+
+function direction(){
+    var direction=prompt("You come to a cross road on your journey, one goes East, one North, and one West. You haven't been this far outside of town so you are not sure where each path leads. Which path do you go down? North, West, or East?)");
+    if (direction == "North"){
+        alert("As you travel down this path it begins to grow dark. Just as you consider turning around, you find a large, deep cave.");
+    caveScenario();
+    }
+    else if(direction== "East"){
+        alert("You begin to walk down a windy path that takes you in many directions. You soon come to realize that you are on the other side of the enchanted lake. At the base of the Lake, you find a small cottage. You decide to go into the cottage.");
+    witchCottage();
+    }
+    else if (direction== "West"){
+        alert("You begin to travel down this road, it begins to grow dark and you begin to grow wary. As you turn to go back to the fork, a giant spider blocks your way and stings you with it's venom, you are then eaten.");
+   death();
+    }
+    else{
+        endGame();
+    }
+}
+
+
+
+/*
+function direction (){
+    prompt("You come to a cross road on your journey, one goes East, one North, and one West. You haven't been this far outside of town so you are not sure where each path leads. Which path do you go down? North, West, or East?");
+    switch(direction){
+        case "North":
+            alert("As you travel down this path it begins to grow dark. Just as you consider turning around, you find a large, deep cave.");
+            break;
+            caveScenario();
+
+        case "West":
+            alert("You begin to travel down this road, it begins to grow dark and you begin to grow wary. As you turn to go back to the fork, a giant spider blocks your way and stings you with it's venom, you are then eaten.");
+            break;
+            death();
+
+        case "East":
+            alert("You begin to walk down a windy path that takes you in many directions. You soon come to realize that you are on the other side of the enchanted lake. At the base of the Lake, you find a small cottage. You decide to go into the cottage.");
+            break;
+            witchCottage();
+    }
+}
+*/
+
+/*Inventory Checklist*/
+
+var key = 0;
+
+var inventory = {
+  keys: 0,
+  coins: 0,
+  apples: 0,
+  magic_Cloak:"yes please"
+  
+  
+}
+function checkInv(){
+  alert(
+    "Key = "+inventory.key+" "+
+    "Rope = "+inventory.rope+" "+
+    "blue_potion = "+inventory.blue_potion+" "+
+    "green_potion = "+inventory.green_potion+" "
+    
+  )
+}
+
+/*Cave Scenario*/
+function caveScenario(){
+alert("As you enter the cave, you see a box half hidden in the rocks. You decide to open the box and take a look inside.");
+alert("You find a key in the box! ");
+var choice = prompt("what will you do? (pick up key or move on)");
+
+if(choice =="pick up key"){
+  /*inventory.key= 1;
+  console.log("Key = "+inventory.key);*/
+}
+else if(choice=="Check"){
+   checkInv();
+}
+else
+  {
+    alert("You move on!");
+    /*console.log("Key = "+inventory.key);*/    
+  }
+
+
+
+alert("You also find rope in the box!");
+var choice = prompt("what will you do? (pick up rope or move on)");
+
+if(choice =="pick up rope"){
+  /*inventory.rope = 1;
+  console.log("Rope = "+inventory.rope);*/
+}
+else if(choice=="Check"){
+   checkInv();
+}
+else
+  {
+    alert("You move on!");
+   /* console.log("Rope = "+inventory.rope);*/
+  }
+
+doorChoice();
+}
+
+ /*Cave Doors*/
+/*function doorChoice()
+			{ 
+        alert("You come into a room with 3 doors of different colors. Blue, Green, And Red");
+				var door = new Array();
+				door[0]="The door opens to a large drop down into the cave"+"<br>";
+				door[1]="This door opens to reveal a large swarm of fire sprites!"+"<br>";
+				door[2]="You come to find this door doesn't have anything but an empty room. You decide to try again."+"<br>";
+				var randomCave = door[Math.floor(Math.random() * door.length)];
+				document.write(doorChoice);
+				if(doorChoice=="The door opens to a large drop down into the cave"+"<br>")
+				{
+					caveBottom();
+				}
+				else if(doorChoice=="This door opens to reveal a large swarm of fire sprites!"+"<br>")
+				{
+					death();
+				}
+				else
+					doorChoice();
+			}
+got stuck on alert forever and caused Chrome to crash.*/
+
+function doorChoice(){
+    alert("You come accross 3 doors of different colors. Red, Green and Blue.")   
+    var door= prompt("Which door color do you choose?")    
+                
+                if(doorChoice== Blue){
+                    alert("The door opens to a large drop down into the cave");
+					caveBottom();
+                }
+				}
+				else if(doorChoice==Red){ 
+                    alert("This door opens to reveal a large swarm of fire sprites!");
+					death();
+				}
+				else{
+                    alert("You come to find this door doesn't have anything but an empty room. You decide to try again.")
+					doorChoice();
+			}
+
+}
+
+
+
+/*Cave Bottom*/
+function caveBottom(){
+    alert("At the mouth of this drop, you realize that it is too far down to jump.");
+    var rope= prompt("What is your choice?(use the rope or jump?)");
+    if(rope=="use the rope"){
+        alert("You climb down from the doorway and find a large black door.");
+   var doorLock = prompt("But the door is locked! Do you have a key to open it?");
+        if (doorLock== true){
+            alert("You take the key you got at the mouth of the cave and give it a try. The door unlocks!!");
+            dragonLair()
+        }
+    else{
+       alert("Oh no! You decided not to grab the key! You try to climb back up but you slip and fall!");
+            death();
+        }
+    }   
+    else if("jump"){
+        alert("You try your luck at jumping down. It was a bit farther than you guessed.");
+        death();
+    }
+}
+
+/*Dragon Lair*/
+function dragonLair(){
+    alert("You enter a large dungeon with barely any light. As your eyes adjust to the darkness, you see the townspeople!!! However, between you and the townspeople is the dragon!");
+    var firstStep = prompt("You think about what to do next, you realize that you have that potion from the old woman. She said it could either come in handy or be a problem. You could hope for the best and drink it or go without. What do you choose?");
+    if (firstStep == true){
+        alert("You decide to drink your potion.");
+        dragonOutcome1();
+    }
+    else if ("You decide it isn't worth the risk and start to sneak around the dragon.");
+     dragonOutcome2();
+}
+
+function fireDeath(){
+    alert("You are burned to death by the swarm of fire sprites.");
+}
+
+/*Dragon Outcomes*/
+function dragonOutcome1(){
+    var potionConfirm = confirm("What color was your potion? (Blue or Green)");
+        if(potionConfirm== Blue){
+            alert("The blue potion gives you invisibility!! You are able to sneak around the dragon with confidence and are able to reach your people. They point to a door that will get you out. You decide to use the same key that you had from the black door and you get your people out.");
+            dragonFree();
+        }
+        else if (potionConfirm == Green){
+            alert("Well, turns out this potion was poison.");
+            death();
+        }
+}
+
+
+function dragonOutcome2(){
+    alert("Ask you sneak around the dragon, you come to the townspeople. They point out a door that will get you out. You decide to try the key from the black door and it works!!");
+    var sneakConfirm = confirm("Just as you are about to leave with the people, you see that the sleeping dragon has been kept captive by the man in black. What do you do?(Leave the dragon or Free the dragon)");
+    if (sneakConfirm== "Free the dragon"){
+        alert("You decide to free the dragon, as you cut the chains, the man in black comes to attack you. He cuts your leg off but the now freed dragon burns the man to a crisp. You make it back home alive but have to learn to live without a leg. The dragon decides to make your town its home and protects the town.");
+    }
+    else if (sneakConfirm=="Leave the dragon"){
+        alert("You decide to leave the dragon and get out of there as quick as you can. But in your efforts to get home to your people quickly, you forget about the man in black. He comes back and burns the town to a crisp.");
+        death();
+    }
+    else{
+            endGame();
+    }
+}
+
+
+
+function dragonFree1(){
+    alert("You find that the dragon has been trapped by this man in black so you cut the chains holding it before you leave for home. The man in black appears and goes to attack you. However, you are inivisible still so he is unable to figure out where you are. The dragon burns him.");
+    alert("You step out of the cave and head back home. The dragon also follows you home and decides to make that its home and protects your town.");
+    gameWin();
+}
+
+
+/*Witch's Cottage*/
+function witchCottage(){
+    alert("When you enter the cottage, you ask if anyone is in. An old woman appears from behind a corner. You ask if she could help you locate where the man in black and dragon went. She cackles and says that she will help you, as long as you give her some of your business.");
+    var potion = confirm("She holds out two different colored bottles with a liquid inside.One is green and one is blue. You may only take one. Which one do you choose? (Blue or Green)");
+    if (potion== green){
+        alert("You take the green potion with a smile and she tells you which way to go.");
+            console.log("Green Potion = "+ inventory.green_potion);
+        caveScenario();
+    }
+    else if (potion== blue){
+        alert("You take the blue potion with a smile and she tells you which way to go.");
+          console.log("Blue Potion = "+ inventory.blue_potion);
+        caveScenario();
+    }
+}
+
+/*Game Win*/
+function gameWin(){
+    alert("Congratulations! You have won the game!");
+}
+
+</script>
+</body>
+</html>
